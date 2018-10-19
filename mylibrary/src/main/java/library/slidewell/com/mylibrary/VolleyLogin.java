@@ -60,6 +60,7 @@ public class VolleyLogin {
                         //hiding the progressbar after completion
                       //  progressBar.setVisibility(View.INVISIBLE);
                             System.out.println("volley response=="+response);
+                        Toast.makeText(c, response, Toast.LENGTH_SHORT).show();
 
                         try {
                             //getting the whole json object from the response
@@ -80,7 +81,7 @@ public class VolleyLogin {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //displaying the error in toast if occurrs
-                      //  Toast.makeText(c, error.getMessage(), Toast.LENGTH_SHORT).show();
+                       Toast.makeText(c, error.getMessage(), Toast.LENGTH_SHORT).show();
                         vresponse=error.getMessage();
                     }
                 }) {
@@ -94,6 +95,7 @@ public class VolleyLogin {
 
 
                 }
+                System.out.println("params==="+params.toString());
 
 
                 return params;
