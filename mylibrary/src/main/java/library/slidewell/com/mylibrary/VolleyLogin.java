@@ -46,11 +46,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Map;
 
 public class VolleyLogin {
 
     public static String vresponse=null;
-    public static String volleyLogin(final Context c,String url, HashMap<String,String>parameters,final Class c1) {
+    public static String volleyLogin(final Context c, String url, final HashMap<String,String>parameters, final Class c1) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -82,7 +83,24 @@ public class VolleyLogin {
                       //  Toast.makeText(c, error.getMessage(), Toast.LENGTH_SHORT).show();
                         vresponse=error.getMessage();
                     }
-                });
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+
+                for (Map.Entry<String, String> entry : parameters.entrySet()) {
+                    params.put(entry.getKey(), entry.getValue());
+
+
+                }
+
+
+                return params;
+            }
+        };
+
+
 
         //creating a request queue
         RequestQueue requestQueue = Volley.newRequestQueue(c);
