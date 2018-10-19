@@ -51,7 +51,7 @@ import java.util.Map;
 public class VolleyLogin {
 
     public static String vresponse=null;
-    public static String volleyLogin(final Context c, String url, final HashMap<String,String>parameters, final Class c1) {
+    public static String volleyLogin(final Context c, String url, final HashMap<String,String>parameters) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
