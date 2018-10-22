@@ -53,7 +53,7 @@ public class VolleyLogin {
 
     public static String vresponse = null;
 
-    public static String volleyLogin(final Context c, String url, final HashMap<String, String> parameters, Class c1) {
+    public static String volleyLogin(final Context c, String url, final HashMap<String, String> parameters) {
 
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
