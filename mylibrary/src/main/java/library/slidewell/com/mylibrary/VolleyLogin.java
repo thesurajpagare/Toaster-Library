@@ -51,10 +51,13 @@ import java.util.concurrent.TimeUnit;
 
 public class VolleyLogin {
 
-    public static String vresponse = null;
+    public static String vresponse = null,vresponse1 = null;
+
+
 
     public static String volleyLogin(final Context c, String url, final HashMap<String, String> parameters) {
 
+        int flag=0;
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>() {
@@ -64,7 +67,7 @@ public class VolleyLogin {
                             //  progressBar.setVisibility(View.INVISIBLE);
                             System.out.println("volley response==" + response);
                             Toast.makeText(c, response, Toast.LENGTH_SHORT).show();
-                            vresponse = response;
+
 
                             try {
                                 //getting the whole json object from the response
@@ -112,14 +115,24 @@ public class VolleyLogin {
             //adding the string request to request queue
 
             requestQueue.add(stringRequest);
-            Thread.sleep(5000);
+           // Thread.sleep(5000);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
 
+       final Handler handler=new Handler();
+        final Runnable r = new Runnable() {
+            public void run() {
+                handler.postDelayed(this, 5000);
+                vresponse1=vresponse;
+            }
+        };
+        return vresponse1;
 
-        return vresponse;
+
     }
+
+
 }
 
