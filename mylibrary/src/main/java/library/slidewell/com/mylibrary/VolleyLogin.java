@@ -59,8 +59,9 @@ public class VolleyLogin {
                     public void onResponse(String response) {
                         //hiding the progressbar after completion
                       //  progressBar.setVisibility(View.INVISIBLE);
-                            System.out.println("volley response=="+response);
+                        System.out.println("volley response=="+response);
                         Toast.makeText(c, response, Toast.LENGTH_SHORT).show();
+                        vresponse=response;
 
                         try {
                             //getting the whole json object from the response
@@ -70,7 +71,7 @@ public class VolleyLogin {
                             //so here we are getting that json array
                             JSONArray heroArray = obj.getJSONArray("heroes");
 
-                            vresponse=response;
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -82,7 +83,7 @@ public class VolleyLogin {
                     public void onErrorResponse(VolleyError error) {
                         //displaying the error in toast if occurrs
                        Toast.makeText(c, error.getMessage(), Toast.LENGTH_SHORT).show();
-                        vresponse=error.getMessage();
+                        vresponse=null;
                     }
                 }) {
 
