@@ -47,72 +47,79 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class VolleyLogin {
 
-    public static String vresponse=null;
-    public static String volleyLogin(final Context c, String url, final HashMap<String,String>parameters) {
+    public static String vresponse = null;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //hiding the progressbar after completion
-                      //  progressBar.setVisibility(View.INVISIBLE);
-                        System.out.println("volley response=="+response);
-                        Toast.makeText(c, response, Toast.LENGTH_SHORT).show();
-                        vresponse=response;
+    public String volleyLogin(final Context c, String url, final HashMap<String, String> parameters, Class c1) {
 
-                        try {
-                            //getting the whole json object from the response
-                            JSONObject obj = new JSONObject(response);
+        try {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            //hiding the progressbar after completion
+                            //  progressBar.setVisibility(View.INVISIBLE);
+                            System.out.println("volley response==" + response);
+                            Toast.makeText(c, response, Toast.LENGTH_SHORT).show();
+                            vresponse = response;
 
-                            //we have the array named hero inside the object
-                            //so here we are getting that json array
-                            JSONArray heroArray = obj.getJSONArray("heroes");
+                            try {
+                                //getting the whole json object from the response
+                                JSONObject obj = new JSONObject(response);
+
+                                //we have the array named hero inside the object
+                                //so here we are getting that json array
+                                JSONArray heroArray = obj.getJSONArray("heroes");
 
 
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            //displaying the error in toast if occurrs
+                            Toast.makeText(c, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            vresponse = null;
+                        }
+                    }) {
+
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+
+                    for (Map.Entry<String, String> entry : parameters.entrySet()) {
+                        params.put(entry.getKey(), entry.getValue());
+
+
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //displaying the error in toast if occurrs
-                       Toast.makeText(c, error.getMessage(), Toast.LENGTH_SHORT).show();
-                        vresponse=null;
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-
-                for (Map.Entry<String, String> entry : parameters.entrySet()) {
-                    params.put(entry.getKey(), entry.getValue());
+                    System.out.println("params===" + params.toString());
 
 
+                    return params;
                 }
-                System.out.println("params==="+params.toString());
+            };
 
 
-                return params;
-            }
-        };
+            //creating a request queue
+            RequestQueue requestQueue = Volley.newRequestQueue(c);
+
+            //adding the string request to request queue
+
+            requestQueue.add(stringRequest);
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
 
-
-        //creating a request queue
-        RequestQueue requestQueue = Volley.newRequestQueue(c);
-
-        //adding the string request to request queue
-        requestQueue.add(stringRequest);
-        return  vresponse;
+        return vresponse;
     }
-
-
 }
 
