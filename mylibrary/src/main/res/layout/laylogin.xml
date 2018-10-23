@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="vertical"
-
+    android:id="@+id/mainlay"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
         android:id="@+id/imv_logo"
