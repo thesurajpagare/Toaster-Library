@@ -87,7 +87,7 @@ public class Splash  extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.laylogin, this);
+        inflate(getContext(), R.layout.lay_splash, this);
          this.imv_logo = (ImageView) findViewById(R.id.imv_logo);
         this.pbar = (ProgressBar) findViewById(R.id.pbar);
 
@@ -108,8 +108,6 @@ public class Splash  extends RelativeLayout {
     public void navigateActivity(String classname)
     {
         try {
-
-
 
             Class myClass = Class.forName(classname);
             Intent i = new Intent(c1, myClass);
