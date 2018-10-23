@@ -98,8 +98,7 @@ public class Splash  extends RelativeLayout {
 
 
     public void setLogo(Context c,int d1) {
-        this.imv_logo.setBackground(ContextCompat.getDrawable(c, d1));
-    }
+        this.imv_logo.setBackground(ContextCompat.getDrawable(c1, d1));    }
 
     public void setBackgroundColor(Context c,int d1) {
         this.mainlay.setBackgroundColor(ContextCompat.getColor(c, d1));
