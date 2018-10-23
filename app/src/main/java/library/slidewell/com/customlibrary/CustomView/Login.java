@@ -1,17 +1,26 @@
-package library.slidewell.com.mylibrary;
+package library.slidewell.com.customlibrary.CustomView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class LoginLayout  extends RelativeLayout {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import library.slidewell.com.customlibrary.R;
+
+public class Login extends RelativeLayout {
     private String titleText;
     private boolean color;
 
@@ -20,14 +29,14 @@ public class LoginLayout  extends RelativeLayout {
     Context c1;
     Button btnlogin;
 
-    public LoginLayout(Context context) {
+    public Login(Context context) {
         super(context);
         init();
         c1=context;
         setTimeView();
     }
 
-    public LoginLayout(Context context, AttributeSet attrs) {
+    public Login(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
         c1=context;
@@ -61,7 +70,7 @@ public class LoginLayout  extends RelativeLayout {
         }
     }
 
-    public LoginLayout(Context context, AttributeSet attrs, int defStyle) {
+    public Login(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
         c1=context;
@@ -74,17 +83,17 @@ public class LoginLayout  extends RelativeLayout {
         /*SimpleDateFormat dateFormat = new SimpleDateFormat("hh.mm aa");
         String time = dateFormat.format(Calendar.getInstance().getTime());*/
 
-        //  if(this.titleText != null )
-        e1.setText("hi1");
-        //   else
-        e2.setText("hi2");
+      //  if(this.titleText != null )
+           e1.setText("hi1");
+     //   else
+           e2.setText("hi2");
     }
 
     private void decorateText() {
         // when we set setColor attribute to true in the XML layout
         if(this.color == true){
             // set the characteristics and the color of the shadow
-            // setShadowLayer(4, 2, 2, Color.rgb(250, 00, 250));
+           // setShadowLayer(4, 2, 2, Color.rgb(250, 00, 250));
             setBackgroundColor(Color.CYAN);
         } else {
             setBackgroundColor(Color.RED);
@@ -112,7 +121,7 @@ public class LoginLayout  extends RelativeLayout {
 
             }
         });
-        // this.icon = (ImageView)findViewById(R.id.icon);
+       // this.icon = (ImageView)findViewById(R.id.icon);
     }
 
     public void SetLoginType(String type) {

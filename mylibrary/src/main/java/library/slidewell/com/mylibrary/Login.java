@@ -92,7 +92,7 @@ public class Login extends RelativeLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.lay_login, this);
+        inflate(getContext(), R.layout.laylogin, this);
         //  setBackgroundColor(getResources().getColor(R.color.card_background));
 
         //Add missing top level attributes
