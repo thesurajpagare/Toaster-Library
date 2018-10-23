@@ -88,7 +88,7 @@ public class Splash  extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.lay_splash, this);
-        this.imv_logo = (ImageView) findViewById(R.id.imv_logo);
+        this.imv_logo = (ImageView) findViewById(R.id.imvlogo);
         this.pbar = (ProgressBar) findViewById(R.id.pbar);
 
 
