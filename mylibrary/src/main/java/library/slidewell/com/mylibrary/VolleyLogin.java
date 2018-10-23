@@ -58,10 +58,6 @@ public class VolleyLogin {
     public static String volleyLogin(final Context c,final String url, final HashMap<String, String> parameters) {
 
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override
@@ -120,11 +116,9 @@ public class VolleyLogin {
 
                 requestQueue.add(stringRequest);
 
-            }
-        }, 5000);
+       return  vresponse;
 
 
-        return vresponse;
 
 
     }

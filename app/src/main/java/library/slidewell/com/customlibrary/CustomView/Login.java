@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,6 +29,7 @@ public class Login extends RelativeLayout {
     ImageView imv_logo;
     Context c1;
     Button btnlogin;
+    LinearLayout mainlay;
 
     public Login(Context context) {
         super(context);
@@ -113,11 +115,13 @@ public class Login extends RelativeLayout {
         this.e2 = (EditText)findViewById(R.id.edpassword);
         this.imv_logo=(ImageView)findViewById(R.id.imv_logo);
         this.btnlogin=(Button)findViewById(R.id.btnLogin);
+        this.mainlay=(LinearLayout) findViewById(R.id.mainlay);
 
 
         this.btnlogin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(c1,"clicked",Toast.LENGTH_LONG).show();
 
             }
         });
@@ -136,6 +140,11 @@ public class Login extends RelativeLayout {
     }
 
     public void setLogo(Context c,int d1) {
-        this.imv_logo.setBackground(ContextCompat.getDrawable(c, d1));
+        this.imv_logo.setVisibility(VISIBLE);
+        this.imv_logo.setBackground(ContextCompat.getDrawable(c1, d1));
+    }
+
+    public void setBackgroundColor(Context c,int d1) {
+        this.mainlay.setBackgroundColor(ContextCompat.getColor(c1, d1));
     }
 }

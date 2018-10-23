@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class Login extends RelativeLayout {
@@ -19,6 +20,7 @@ public class Login extends RelativeLayout {
     ImageView imv_logo;
     Context c1;
     Button btnlogin;
+    LinearLayout mainlay;
 
     public Login(Context context) {
         super(context);
@@ -104,7 +106,7 @@ public class Login extends RelativeLayout {
         this.e2 = (EditText)findViewById(R.id.edpassword);
         this.imv_logo=(ImageView)findViewById(R.id.imv_logo);
         this.btnlogin=(Button)findViewById(R.id.btnLogin);
-
+        this.mainlay=(LinearLayout) findViewById(R.id.mainlay);
 
         this.btnlogin.setOnClickListener(new OnClickListener() {
             @Override
@@ -117,7 +119,7 @@ public class Login extends RelativeLayout {
 
     public void SetLoginType(String type) {
 
-        if(type.matches("username")) {
+        if(type.equalsIgnoreCase("username")) {
             this.e1.setHint("Username");
         }else
         {
@@ -128,5 +130,9 @@ public class Login extends RelativeLayout {
 
     public void setLogo(Context c,int d1) {
         this.imv_logo.setBackground(ContextCompat.getDrawable(c, d1));
+    }
+
+    public void setBackgroundColor(Context c,int d1) {
+        this.mainlay.setBackgroundColor(ContextCompat.getColor(c, d1));
     }
 }
