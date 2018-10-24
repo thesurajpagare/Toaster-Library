@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void GetResponse()
     {
-        System.out.println(loginResponse);
+        System.out.println("in get reponse method===="+loginResponse);
     }
 
 
