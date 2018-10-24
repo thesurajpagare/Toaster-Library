@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_margin="10dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/imv_logo"
+        android:layout_width="85dp"
+        android:layout_height="85dp" />
+    <EditText
+        android:layout_marginTop="5dp"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/edusername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+
+        android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+        android:layout_marginLeft="?android:attr/listPreferredItemPaddingLeft"/>
+
+    <EditText
+        android:layout_below="@+id/edusername"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/edpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+
+        android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+        android:layout_marginLeft="?android:attr/listPreferredItemPaddingLeft"/>
+
+    <Button
+        android:layout_centerHorizontal="true"
+
+
+        android:layout_below="@+id/edpassword"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+
+        android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+        />
+</LinearLayout>
+
