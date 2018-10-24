@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
     }
     public void SetLogo(int drawable)
     {
-        mainlay.setBackground(ContextCompat.getDrawable(SplashActivity.this,drawable));
+        imvlogo.setBackground(ContextCompat.getDrawable(SplashActivity.this,drawable));
     }
 
     public void SetScreenBackground(String background_type,int value)
