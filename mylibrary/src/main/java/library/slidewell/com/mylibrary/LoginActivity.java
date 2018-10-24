@@ -10,6 +10,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
    EditText e1,e2;
    Button btnLogin;
+   public static String loginResponse=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this,"hi login",Toast.LENGTH_LONG).show();
+                loginResponse="succes response";
             }
         });
 
