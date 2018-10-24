@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
 
-        <item name="android:buttonStyle">@style/ButtonStyle</item>
+
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="alertDialogStyle">@style/AlertDialogTheme</item>
     </style>
@@ -14,7 +14,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="buttonBarButtonStyle">@style/DialogButtonStyle</item>
+
     </style>
 
 
