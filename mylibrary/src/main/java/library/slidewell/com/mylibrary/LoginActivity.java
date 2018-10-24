@@ -2,11 +2,14 @@ package library.slidewell.com.mylibrary;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     public static String METHODTYPE=null;
     private RequestQueue mRequestQueue;
     private RequestQueue mRequestQueue1;
+    LinearLayout mainlay;
+    CardView cv_login;
+
     //public static String METHODTYPE=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         e1=(EditText)findViewById(R.id.edusername);
         e2=(EditText)findViewById(R.id.edpassword);
+        mainlay=(LinearLayout)findViewById(R.id.mainlay);
         btnLogin=(Button)findViewById(R.id.btnLogin);
+        cv_login=(CardView)findViewById(R.id.Login_User);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +66,27 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                // GetLoginResponse();
+            }
+        });
+
+        cv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //  loginResponse="succes response";
+                e1.setError(null);
+                e2.setError(null);
+               // System.out.println("url=="+LOGINURL+"method=="+METHODTYPE);
+                if(e1.getText().toString().length()==0)
+                {
+                    e1.setError("Empty Username");
+                    e1.requestFocus();
+                }else if(e2.getText().toString().length()==0)
+                {
+                    e2.setError("Empty Password");
+                    e2.requestFocus();
+                }else {
+                    checkCredentials();
+                }
             }
         });
 
@@ -145,12 +174,25 @@ public class LoginActivity extends AppCompatActivity {
     {
         System.out.println("in get reponse method===="+loginResponse);
     }
-    public void SetURI(String url,String method)
+    public void SetLoginURI(String url,String method)
     {
         LOGINURL=url;
         METHODTYPE=method;
     }
 
+    public void SetScreenBackground(String background_type,int value)
+    {
+      if(background_type.equalsIgnoreCase("image"))
+      {
+
+          mainlay.setBackground(ContextCompat.getDrawable(LoginActivity.this, value));
+
+      }else
+      {
+          mainlay.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, value));
+
+      }
+    }
 
 }
 
