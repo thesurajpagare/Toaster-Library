@@ -37,7 +37,11 @@ public class LoginActivity extends AppCompatActivity {
     {
         System.out.println("in get reponse method===="+loginResponse);
     }
-
+    public void SetURI(String url,String method)
+    {
+        LOGINURL=url;
+        METHODTYPE=method;
+    }
 
 
 }
