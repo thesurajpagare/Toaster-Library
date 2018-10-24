@@ -11,6 +11,9 @@ public class LoginActivity extends AppCompatActivity {
    EditText e1,e2;
    Button btnLogin;
    public static String loginResponse=null;
+    public static String LOGINURL=null;
+    public static String METHODTYPE=null;
+    //public static String METHODTYPE=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this,"hi login",Toast.LENGTH_LONG).show();
                 loginResponse="succes response";
+                System.out.println("url=="+LOGINURL+"method=="+METHODTYPE);
                 GetResponse();
             }
         });
