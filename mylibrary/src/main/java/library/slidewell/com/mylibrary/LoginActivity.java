@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String LOGINURL=null;
     public static String METHODTYPE=null;
     private RequestQueue mRequestQueue;
+    private RequestQueue mRequestQueue1;
     //public static String METHODTYPE=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
