@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 public class SplashActivity extends AppCompatActivity {
     LinearLayout mainlay;
     ImageView imvlogo;
+    ImageView imvlogo1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
