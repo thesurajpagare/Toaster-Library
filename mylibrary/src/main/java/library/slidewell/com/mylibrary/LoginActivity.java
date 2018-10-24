@@ -10,9 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
    public static String loginResponse=null;
     public static String LOGINURL=null;
     public static String METHODTYPE=null;
+    private RequestQueue mRequestQueue;
     //public static String METHODTYPE=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
        final ProgressDialog  progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait while login...");
-
+        mRequestQueue = Volley.newRequestQueue(this);
         if (new ConnectionHelper().isConnected(LoginActivity.this)) {
             progressDialog.show();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGINURL,
@@ -124,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             };
 
-            AppController.getInstance().addToRequestQueue(stringRequest);
+            mRequestQueue.add(stringRequest);
         } else
         {
             Toast.makeText(LoginActivity.this,"Internet not availbale",Toast.LENGTH_LONG).show();
