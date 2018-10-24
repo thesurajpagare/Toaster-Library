@@ -28,9 +28,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public String GetResponse()
+    public void GetResponse()
     {
-        return  loginResponse;
+        loginResponse="succes response in get method";
     }
 
 
