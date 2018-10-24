@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this,"hi login",Toast.LENGTH_LONG).show();
                 loginResponse="succes response";
+                GetResponse();
             }
         });
 
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void GetResponse()
     {
-        loginResponse="succes response in get method";
+        System.out.println(loginResponse);
     }
 
 
