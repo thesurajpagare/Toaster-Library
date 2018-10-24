@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                             try {
                                 progressDialog.dismiss();
                                 loginResponse=response;
+                                GetLoginResponse();
 
                                 System.out.println("checkCredentials response " + response);
 
