@@ -28,6 +28,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    public String GetResponse()
+    {
+        return  loginResponse;
+    }
+
 }
 
 
