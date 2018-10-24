@@ -26,7 +26,7 @@ public class Login extends RelativeLayout {
         super(context);
         init();
         c1=context;
-        setTimeView();
+        //setTimeView();
     }
 
     public Login(Context context, AttributeSet attrs) {
@@ -47,7 +47,7 @@ public class Login extends RelativeLayout {
 
                     // set the text from the layout
                     titleText = typedArray.getString(attr);
-                    setTimeView();
+                 //   setTimeView();
                 } else if(attr == R.styleable.Login_setColor) {
                     // set the color of the attr "setColor"
                     color = typedArray.getBoolean(attr, false);
@@ -67,7 +67,7 @@ public class Login extends RelativeLayout {
         super(context, attrs, defStyle);
         init();
         c1=context;
-        setTimeView();
+      //  setTimeView();
     }
 
     private void setTimeView() {
@@ -133,6 +133,10 @@ public class Login extends RelativeLayout {
     }
 
     public void setBackgroundColor(Context c,int d1) {
+        this.mainlay.setBackgroundColor(ContextCompat.getColor(c, d1));
+    }
+
+    public void getUsername(Context c,int d1) {
         this.mainlay.setBackgroundColor(ContextCompat.getColor(c, d1));
     }
 }
