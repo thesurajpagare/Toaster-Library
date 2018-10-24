@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mainlay=(LinearLayout)findViewById(R.id.mainlay);
-        imvlogo=(ImageView)findViewById(R.id.imv_logo);
+        imvlogo=(ImageView)findViewById(R.id.imvlogo);
 
 
         new Handler().postDelayed(new Runnable() {
