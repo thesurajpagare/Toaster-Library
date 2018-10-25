@@ -81,7 +81,7 @@ public class ForgetPassword extends AppCompatActivity {
     /**
      * call web api  FORGOT_PASSWORD to  send email to user
      */
-    private void sendEmail(final String inputEmail) {
+    public void sendEmail(final String inputEmail) {
 
 
         final ProgressDialog progressDialog = new ProgressDialog(ForgetPassword.this);

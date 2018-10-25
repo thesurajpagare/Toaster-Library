@@ -21,7 +21,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
     }
 // add menu to drawer
-    private void addMenuItemInNavMenuDrawer(String menuName,ArrayList<String> menus)
+    public void addMenuItemInNavMenuDrawer(String menuName,ArrayList<String> menus)
     {
         //add menus
         NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
