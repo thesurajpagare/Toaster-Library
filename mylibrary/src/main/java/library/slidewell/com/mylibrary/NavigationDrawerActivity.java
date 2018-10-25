@@ -9,11 +9,12 @@ import java.util.ArrayList;
 
 public class NavigationDrawerActivity extends AppCompatActivity {
 
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
 
         //addMenuItemInNavMenuDrawer();
@@ -24,14 +25,14 @@ public class NavigationDrawerActivity extends AppCompatActivity {
     public void addMenuItemInNavMenuDrawer(String menuName,ArrayList<String> menus)
     {
         //add menus
-        NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
+      //  NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
 
-        Menu menu = navView.getMenu();
+        Menu menu = navigationView.getMenu();
         Menu submenu = menu.addSubMenu(menuName);
         for(int i=0;i<menus.size();i++) {
             submenu.add(menus.get(i));
         }
 
-        navView.invalidate();
+        navigationView.invalidate();
     }
 }
