@@ -20,7 +20,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
 
 
     }
-
+// add menu to drawer
     private void addMenuItemInNavMenuDrawer(String menuName,ArrayList<String> menus)
     {
         //add menus
