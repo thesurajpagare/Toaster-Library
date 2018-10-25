@@ -8,7 +8,8 @@
     <application>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity" />
-        <activity android:name=".ForgetPassword"></activity>
+        <activity android:name=".ForgetPassword" />
+        <activity android:name=".NavigationDrawerActivity"></activity>
     </application>
 
 </manifest>
