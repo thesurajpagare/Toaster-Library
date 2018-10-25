@@ -31,13 +31,7 @@ public class Card extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.card, this);
-      //  setBackgroundColor(getResources().getColor(R.color.card_background));
-
-        //Add missing top level attributes
-       // int padding = (int)getResources().getDimension(R.dimen.card_padding);
-      //  setPadding(padding, padding, padding, padding);
-
-
+    
         this.description = (TextView)findViewById(R.id.description);
         this.thumbnail = (ImageView)findViewById(R.id.thumbnail);
         this.icon = (ImageView)findViewById(R.id.icon);
