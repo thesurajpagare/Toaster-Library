@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     public static String loginResponse = null;
     public static String LOGINURL = null;
     public static String METHODTYPE = null;
+
+
     private RequestQueue mRequestQueue;
     private RequestQueue mRequestQueue1;
     LinearLayout mainlay;
@@ -111,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     private void checkCredentials() {
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setCancelable(false);
-        progressDialog.setMessage("Please wait while login...");
+        progressDialog.setMessage("Authenticating...");
         mRequestQueue = Volley.newRequestQueue(this);
         if (new ConnectionHelper().isConnected(LoginActivity.this)) {
             progressDialog.show();
@@ -167,15 +169,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * METHOD TO GET LOGIN RESPONSE
+     */
+
     public void GetLoginResponse() {
       //  System.out.println("in get reponse method====" + loginResponse);
     }
 
+
+
+
+    /**
+     * METHOD TO SET LOGIN URL
+     */
     public void SetLoginURI(String url, String method) {
         LOGINURL = url;
         METHODTYPE = method;
     }
 
+
+    /**
+     * METHOD TO SET SCREEN BACKGROUND
+     */
     public void SetScreenBackground(String background_type, int value) {
         if (background_type.equalsIgnoreCase("image")) {
 
@@ -186,6 +202,10 @@ public class LoginActivity extends AppCompatActivity {
 
         }
     }
+
+
+
+
 
 }
 
