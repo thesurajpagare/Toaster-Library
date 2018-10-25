@@ -15,7 +15,7 @@ public class NavigationDrawerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lay_navigationview);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
+      //  navigationView.setNavigationItemSelectedListener(this);
 
         //addMenuItemInNavMenuDrawer();
 
