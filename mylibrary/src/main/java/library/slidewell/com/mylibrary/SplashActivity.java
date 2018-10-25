@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+//Custom Splash Screen Activity Library
 public class SplashActivity extends AppCompatActivity {
     LinearLayout mainlay;
     ImageView imvlogo;
@@ -18,23 +19,41 @@ public class SplashActivity extends AppCompatActivity {
         mainlay=(LinearLayout)findViewById(R.id.mainlay);
         imvlogo=(ImageView)findViewById(R.id.imvlogo);
 
-
         new Handler().postDelayed(new Runnable() {
             public void run() {
                navigatetoActivity();
             }
-        }, 3000);
+        }, 3000);             //delay to splash screen
 
     }
+
+    /*Method :navigatetoActivity (to navigate to another activity)
+
+    */
 
     public void navigatetoActivity()
     {
 
     }
+
+    /*
+
+    Function: SetLogo
+    input:    int i.e. R.drawable.background
+    */
+
     public void SetLogo(int drawable)
     {
         imvlogo.setBackground(ContextCompat.getDrawable(SplashActivity.this,drawable));
     }
+
+     /*
+
+    Function: SetScreenBackground
+    input:
+    String(BackgroundType i.e. value maybe color or image
+    String(value i.e for color R.color.blue and for image R.drawable.background)
+    */
 
     public void SetScreenBackground(String background_type,int value)
     {

@@ -53,6 +53,17 @@
             android:maxLines="1" />
     </android.support.design.widget.TextInputLayout>
 
+    <TextView
+        android:id="@+id/textForgetPassword"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_gravity="center|right"
+        android:gravity="right|center"
+        android:text="Forgot Password"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <Button
         android:visibility="gone"
         android:layout_centerHorizontal="true"

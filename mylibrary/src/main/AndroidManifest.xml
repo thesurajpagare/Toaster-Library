@@ -7,7 +7,8 @@
 
     <application>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".ForgetPassword"></activity>
     </application>
 
 </manifest>

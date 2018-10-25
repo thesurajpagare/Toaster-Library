@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,66 +28,73 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-  EditText e1,e2;
-   Button btnLogin;
-   public static String loginResponse=null;
-    public static String LOGINURL=null;
-    public static String METHODTYPE=null;
+    EditText e1, e2;
+    Button btnLogin;
+    public static String loginResponse = null;
+    public static String LOGINURL = null;
+    public static String METHODTYPE = null;
     private RequestQueue mRequestQueue;
     private RequestQueue mRequestQueue1;
     LinearLayout mainlay;
     CardView cv_login;
+    TextView textForgetPassword;
 
     //public static String METHODTYPE=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginactivity);
-        e1=(EditText)findViewById(R.id.edusername);
-        e2=(EditText)findViewById(R.id.edpassword);
-        mainlay=(LinearLayout)findViewById(R.id.mainlay);
-        btnLogin=(Button)findViewById(R.id.btnLogin);
-        cv_login=(CardView)findViewById(R.id.Login_User);
+        e1 = (EditText) findViewById(R.id.edusername);
+        e2 = (EditText) findViewById(R.id.edpassword);
+        mainlay = (LinearLayout) findViewById(R.id.mainlay);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        cv_login = (CardView) findViewById(R.id.Login_User);
+        textForgetPassword=(TextView)findViewById(R.id.textForgetPassword);
+
+        textForgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(LoginActivity.this,ForgetPassword.class);
+                startActivity(i);
+            }
+        });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this,"hi login",Toast.LENGTH_LONG).show();
-                loginResponse="succes response";
+                Toast.makeText(LoginActivity.this, "hi login", Toast.LENGTH_LONG).show();
+                loginResponse = "succes response";
                 e1.setError(null);
                 e2.setError(null);
-                System.out.println("url=="+LOGINURL+"method=="+METHODTYPE);
-                if(e1.getText().toString().length()==0)
-                {
+                System.out.println("url==" + LOGINURL + "method==" + METHODTYPE);
+                if (e1.getText().toString().length() == 0) {
                     e1.setError("Empty Username");
                     e1.requestFocus();
-                }else if(e2.getText().toString().length()==0)
-                {
+                } else if (e2.getText().toString().length() == 0) {
                     e2.setError("Empty Password");
                     e2.requestFocus();
-                }else {
+                } else {
                     checkCredentials();
                 }
 
-               // GetLoginResponse();
+                // GetLoginResponse();
             }
         });
 
         cv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  loginResponse="succes response";
+                //  loginResponse="succes response";
                 e1.setError(null);
                 e2.setError(null);
-               // System.out.println("url=="+LOGINURL+"method=="+METHODTYPE);
-                if(e1.getText().toString().length()==0)
-                {
+                // System.out.println("url=="+LOGINURL+"method=="+METHODTYPE);
+                if (e1.getText().toString().length() == 0) {
                     e1.setError("Empty Username");
                     e1.requestFocus();
-                }else if(e2.getText().toString().length()==0)
-                {
+                } else if (e2.getText().toString().length() == 0) {
                     e2.setError("Empty Password");
                     e2.requestFocus();
-                }else {
+                } else {
                     checkCredentials();
                 }
             }
@@ -93,16 +102,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+  /*
+  Method : checkCredentials
+  network call for login using volley library
+   */
 
     private void checkCredentials() {
-
-
-//        String url=session.getServerUrl()+ IUrls.LOGIN;
-        //String url = removeLastSlash(session.getApiDomainUrl()) + "/" + new MyNativeMethods().getApiString() + new MyNativeMethods().getLoginString();
-
-        //System.out.println(TAG + " checkCredentials  LOGIN  " + url);
-       final ProgressDialog  progressDialog = new ProgressDialog(LoginActivity.this);
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Please wait while login...");
         mRequestQueue = Volley.newRequestQueue(this);
@@ -114,16 +120,12 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(String response) {
                             try {
                                 progressDialog.dismiss();
-                                loginResponse=response;
+                                loginResponse = response;
                                 GetLoginResponse();
-
-                                System.out.println("checkCredentials response " + response);
-
-
-
+                               // System.out.println("checkCredentials response " + response);
 
                             } catch (Exception e) {
-                                System.out.println("out of memory=="+e.getMessage());
+                               // System.out.println("out of memory==" + e.getMessage());
                                 e.printStackTrace();
                             }
                         }
@@ -149,50 +151,39 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<String, String>();
-                    params.put("Username",e1.getText().toString() );
+                    params.put("Username", e1.getText().toString());
                     params.put("Password", e2.getText().toString());
-
-
-                    System.out.println("login_param: "+params.toString());
+                    // System.out.println("login_param: " + params.toString());
 
                     return params;
                 }
             };
 
             mRequestQueue.add(stringRequest);
-        } else
-        {
-            Toast.makeText(LoginActivity.this,"Internet not availbale",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(LoginActivity.this, "Internet not availbale", Toast.LENGTH_LONG).show();
         }
     }
 
 
-
-
-
-
-    public void GetLoginResponse()
-    {
-        System.out.println("in get reponse method===="+loginResponse);
-    }
-    public void SetLoginURI(String url,String method)
-    {
-        LOGINURL=url;
-        METHODTYPE=method;
+    public void GetLoginResponse() {
+      //  System.out.println("in get reponse method====" + loginResponse);
     }
 
-    public void SetScreenBackground(String background_type,int value)
-    {
-      if(background_type.equalsIgnoreCase("image"))
-      {
+    public void SetLoginURI(String url, String method) {
+        LOGINURL = url;
+        METHODTYPE = method;
+    }
 
-          mainlay.setBackground(ContextCompat.getDrawable(LoginActivity.this, value));
+    public void SetScreenBackground(String background_type, int value) {
+        if (background_type.equalsIgnoreCase("image")) {
 
-      }else
-      {
-          mainlay.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, value));
+            mainlay.setBackground(ContextCompat.getDrawable(LoginActivity.this, value));
 
-      }
+        } else {
+            mainlay.setBackgroundColor(ContextCompat.getColor(LoginActivity.this, value));
+
+        }
     }
 
 }
