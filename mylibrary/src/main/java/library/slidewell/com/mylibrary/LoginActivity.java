@@ -49,10 +49,10 @@ public class LoginActivity extends AppCompatActivity {
         mainlay = (LinearLayout) findViewById(R.id.mainlay);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         cv_login = (CardView) findViewById(R.id.Login_User);
-        textForgetPassword=(TextView)findViewById(R.id.textForgetPassword);
+      //  textForgetPassword=(TextView)findViewById(R.id.textForgetPassword);
         tvLoginForgetPassword=(TextView)findViewById(R.id.tvLoginForgetPassword);
 
-        textForgetPassword.setOnClickListener(new View.OnClickListener() {
+        tvLoginForgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(LoginActivity.this,ForgetPassword.class);

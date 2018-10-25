@@ -113,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="#E51B16"
+        android:textColor="@android:color/holo_red_light"
         android:text="Forget Password"
         android:visibility="visible" />
 
