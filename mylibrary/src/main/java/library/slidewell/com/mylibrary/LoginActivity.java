@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue1;
     LinearLayout mainlay;
     CardView cv_login;
-    TextView textForgetPassword;
+    TextView textForgetPassword,tvLoginForgetPassword;
 
     //public static String METHODTYPE=null;
     @Override
@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         cv_login = (CardView) findViewById(R.id.Login_User);
         textForgetPassword=(TextView)findViewById(R.id.textForgetPassword);
+        tvLoginForgetPassword=(TextView)findViewById(R.id.tvLoginForgetPassword);
 
         textForgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
